@@ -62,6 +62,26 @@ export const logout = async (req, res) => {
     return res.sendStatus(200)
 };
 
+export const profile = async(req,res) => {
+
+    const {token} = req.cookies;
+    if(!token) return res.send(false);
+
+    JWT.verify(token,TOKEN_SECRET, async(error,user)=>{
+
+        if(error) return res.sendStatus(401);
+        const userFound = await User.findById(user.id);
+
+        if(!userFound) return res.sendStatus(401);
+        return res.json({
+            id:userFound._id,
+            username:userFound.username,
+            email:userFound.email,
+        });
+    });
+}
+
+
 export const verifyToken = async (req, res) => {
     const { token } = req.cookies
     if (!token) return res.status(401).json({ message: "Unauthorized" });
@@ -78,5 +98,3 @@ export const verifyToken = async (req, res) => {
         });
     });
 };
-
-// export 
