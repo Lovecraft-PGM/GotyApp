@@ -1,11 +1,12 @@
 import { Router } from "express";
-import {authRequired} from "../middlewares/validateToken.js"
-import { validateSchema } from "../middlewares/validatorMiddleware.js"
-import { registerSchema,loginSchema } from "../schemas/authSchemas.js"
+import { createClient } from "../controllers/clientControllers.js";
+import { validateSchema } from "../middlewares/validatorMiddleware.js";
+import { createClientSchema } from "../schemas/clientSchema.js"
+
 
 const router = Router();
 
-router.post("/clients",register);
+router.post("/create-client", validateSchema(createClientSchema), createClient);
 
 
 export default router 

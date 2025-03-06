@@ -32,6 +32,7 @@ export const register = async (req, res) => {
     }
 };
 
+
 export const login = async (req, res) => {
     const { email, password } = req.body
     try {
@@ -61,6 +62,7 @@ export const logout = async (req, res) => {
     })
     return res.sendStatus(200)
 };
+
 
 export const profile = async(req,res) => {
 

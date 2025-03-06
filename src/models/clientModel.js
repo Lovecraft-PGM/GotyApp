@@ -1,22 +1,46 @@
 import mongoose from "mongoose";
-//Tabla usuarios
 
-const userSchema = new mongoose.Schema({
-    username:{
-        type:String,
-        required:true,
-        trim:true, /*Remueve los espacios*/
-    },
-    email:{
-        type:String,
-        required:true,
-        trim:true,
-        unique:true /*Unico*/
-    },
-    password:{
-        type:String,
-        required:true
-    }
-})
+//Tabla clients
 
-export default mongoose.model("User",userSchema);
+const clientSchema = new mongoose.Schema({
+  name:{
+    type:String,
+    required:true,
+    trim:true, /*Remueve los espacios*/
+  },
+  document:{
+    type:String,
+    required:true,
+    trim:true,
+  },
+  address:{
+    type:String,
+    required:true,
+    trim:true,
+  },
+  phone:{
+    type:String,
+    required:true,
+    min:0,
+    trim:true,
+  },
+  credit:{
+    type:Number,
+    required:true,
+    min:0,
+    trim:true,
+  },
+  quota:{
+    type:Number,
+    required:true,
+    min:0,
+    trim:true,
+  },
+  fiador:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"Fiador",
+    required: true,
+  }   
+}, { timestamps: true })
+
+export default mongoose.model("Client",clientSchema);
