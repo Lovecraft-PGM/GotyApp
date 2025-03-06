@@ -5,7 +5,7 @@ export async function createAccessToken(payload)
 {
     return new Promise((resolve,reject)=>{
         JWT.sign(payload,TOKEN_SECRET,{expiresIn:"1D"},(error,token)=>{
-            if(err)reject(err);
+            if(error)reject(error);
             resolve(token)
         })
     })
