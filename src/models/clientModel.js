@@ -24,18 +24,6 @@ const clientSchema = new mongoose.Schema({
     min:0,
     trim:true,
   },
-  credit:{
-    type:Number,
-    required:true,
-    min:0,
-    trim:true,
-  },
-  quota:{
-    type:Number,
-    required:true,
-    min:0,
-    trim:true,
-  },
   fiador:{
       name:{
       type:String,

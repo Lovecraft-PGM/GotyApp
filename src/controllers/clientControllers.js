@@ -11,8 +11,6 @@ export const createClient = async (req, res) => {
       document,
       address,
       phone,
-      credit,
-      quota,
       fiador: { name, document, address, phone }
     });
     

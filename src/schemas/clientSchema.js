@@ -17,13 +17,6 @@ export const createClientSchema = z.object({
       required_error:"Se requiere un teléfono",
     }).min(10,{message:"Por favor, digite el teléfono del cliente"}),
 
-    credit:z.string({
-      required_error:"Se requiere un valor de crédito",
-    }),
-
-    quota:z.string({
-        required_error:"Se requiere una plazo para los pagos",
-    }).min(1,{message:"Por favor, digite el teléfono del cliente"}),   
 });
 
 
