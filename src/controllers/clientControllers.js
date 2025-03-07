@@ -13,7 +13,7 @@ export const createClient = async (req, res) => {
       phone,
       credit,
       quota,
-      fiador: req.fiador.id
+      fiador: { name, document, address, phone }
     });
     
     await newClient.save();

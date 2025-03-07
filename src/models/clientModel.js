@@ -37,9 +37,27 @@ const clientSchema = new mongoose.Schema({
     trim:true,
   },
   fiador:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:"Fiador",
-    required: true,
+      name:{
+      type:String,
+      required:true,
+      trim:true, /*Remueve los espacios*/
+    },
+    document:{
+      type:String,
+      required:true,
+      trim:true,
+    },
+    address:{
+      type:String,
+      required:true,
+      trim:true,
+    },
+    phone:{
+      type:String,
+      required:true,
+      min:0,
+      trim:true,
+    },
   }   
 }, { timestamps: true })
 
